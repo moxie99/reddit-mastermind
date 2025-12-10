@@ -59,9 +59,25 @@ Vercel will automatically deploy your app. The `vercel.json` file is already con
 
 After deployment:
 
-1. Check your Vercel dashboard → Functions → Cron Jobs
-2. You should see the cron job scheduled for Mondays at 9 AM
-3. The cron job will call `/api/cron/generate-week` automatically
+1. Set up cron jobs using an external service (see DEPLOYMENT.md)
+2. The cron job will call `/api/cron/generate-week` automatically
+3. Monitor executions in your cron service dashboard
+
+## Deployment Options
+
+### Render (Recommended)
+1. Push to GitHub
+2. Connect to Render and deploy your Next.js app
+3. Set `CRON_SECRET` environment variable
+4. Use cron-job.org or EasyCron for automated calendar generation
+
+### Vercel (Alternative)
+1. Push to GitHub
+2. Connect to Vercel (auto-detects Next.js)
+3. Set `CRON_SECRET` environment variable
+4. Built-in cron jobs run automatically every Monday at 9 AM
+
+See `DEPLOYMENT.md` for detailed setup instructions for both platforms.
 
 ## Usage
 
@@ -137,6 +153,8 @@ Health check and cron job endpoint.
 │   ├── schemas/calendar-schema.ts       # Form validation
 │   └── stores/                          # State management
 ├── vercel.json                          # Vercel config
+├── render.yaml                          # Render config
+├── DEPLOYMENT.md                        # Deployment guide
 └── CRON_SETUP.md                        # Cron setup guide
 ```
 
