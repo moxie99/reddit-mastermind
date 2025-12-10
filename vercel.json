@@ -4,6 +4,9 @@
       "path": "/api/cron/generate-week",
       "schedule": "0 9 * * 1"
     }
-  ]
+  ],
+  "env": {
+    "CRON_SECRET": "@cron-secret"
+  }
 }
 
